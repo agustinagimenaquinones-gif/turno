@@ -54,6 +54,8 @@ const DEFAULT_TIME_SLOTS = [
   '09:00', '10:15', '11:30', '14:00', '15:15', '16:30', '17:45', '19:00'
 ];
 
+const BACKEND_URL = 'http://127.0.0.1:3001';
+
 // Helper to get from localstorage with fallback
 const getStorageItem = (key, fallback) => {
   const data = localStorage.getItem(key);
@@ -162,7 +164,7 @@ export const createAppointment = async (appointmentData) => {
 
   // 5. Call API server to send confirmation email securely using backend SMTP
   try {
-    const res = await fetch('/api/send-email', {
+    const res = await fetch(`${BACKEND_URL}/api/send-email`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newAppointment)
@@ -265,7 +267,7 @@ export const updateSlotAvailability = async (slotData) => {
 
 // Admin SMTP Test client helper
 export const testRealEmail = async (toEmail) => {
-  const res = await fetch('/api/admin/test-email', {
+  const res = await fetch(`${BACKEND_URL}/api/admin/test-email`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ toEmail })
