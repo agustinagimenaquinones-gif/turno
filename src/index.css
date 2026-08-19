@@ -1,0 +1,267 @@
+/* ----------------------------------------------------
+   COQUETTE + CLEAN DESIGN SYSTEM
+   Tonos: Rosa pastel, Beige, Blanco y Detalles Dorados
+   ---------------------------------------------------- */
+
+:root {
+  /* Color Palette */
+  --bg-primary: #fdf6f7;
+  --bg-secondary: #fbf6f0;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fffafc;
+  
+  --pink-100: #fdf2f4;
+  --pink-200: #f7e1e6;
+  --pink-300: #f3c4ce;
+  --pink-400: #e8a2b1;
+  --pink-500: #d97d93;
+
+  --beige-100: #fdfbf7;
+  --beige-200: #f7f2ea;
+  --beige-300: #eee4d5;
+
+  --gold-primary: #c5a059;
+  --gold-light: #e5c158;
+  --gold-gradient: linear-gradient(135deg, #d4af37 0%, #c5a059 50%, #e6ca65 100%);
+  --gold-border: rgba(212, 175, 55, 0.35);
+
+  --text-dark: #3d3035;
+  --text-medium: #6e5960;
+  --text-light: #9e858c;
+  --text-gold: #b38b36;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 4px 12px rgba(230, 180, 195, 0.12);
+  --shadow-md: 0 10px 25px rgba(220, 160, 180, 0.16);
+  --shadow-lg: 0 15px 35px rgba(200, 140, 160, 0.22);
+  --shadow-gold: 0 6px 20px rgba(212, 175, 55, 0.25);
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(247, 225, 230, 0.5) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(247, 242, 234, 0.6) 0%, transparent 40%);
+  color: var(--text-dark);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--pink-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pink-300);
+  border-radius: var(--radius-full);
+}
+
+/* Typography Utility Classes */
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+}
+
+.text-gold-gradient {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Main Container Layout */
+.app-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 24px 60px;
+}
+
+/* Coquette Card Styling */
+.coquette-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--pink-200);
+  box-shadow: var(--shadow-sm);
+  padding: 30px;
+  transition: all var(--transition-smooth);
+  position: relative;
+}
+
+.coquette-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--pink-300);
+}
+
+/* Coquette Gold Detail Badge */
+.gold-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 252, 245, 0.9);
+  border: 1px solid var(--gold-border);
+  color: var(--text-gold);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #f7d1da 0%, #e8a2b1 100%);
+  color: #3d2229;
+  border: 1px solid #f0b6c4;
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(232, 162, 177, 0.35);
+  transition: all var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(232, 162, 177, 0.5);
+  background: linear-gradient(135deg, #fce0e6 0%, #eb9ab8 100%);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text-medium);
+  border: 1px solid var(--pink-200);
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-secondary:hover {
+  background: var(--pink-100);
+  color: var(--text-dark);
+  border-color: var(--pink-300);
+}
+
+.btn-gold {
+  background: var(--gold-gradient);
+  color: #ffffff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-gold);
+  transition: all var(--transition-smooth);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* Form Controls */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-medium);
+  letter-spacing: 0.3px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--pink-200);
+  background-color: #fffafc;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--pink-400);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(232, 162, 177, 0.2);
+}
+
+.form-input::placeholder {
+  color: #bda6ad;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .app-container {
+    padding: 12px 14px 40px;
+  }
+  .coquette-card {
+    padding: 20px 16px;
+  }
+}
